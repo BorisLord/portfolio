@@ -10,7 +10,7 @@ RUN npm run build
 
 FROM httpd:2.4-alpine AS runtime
 
-RUN apt-get update && apt-get install -y curl wget && apt-get clean
+RUN apk add --no-cache curl wget
 
 COPY --from=build /app/dist /usr/local/apache2/htdocs/
 
