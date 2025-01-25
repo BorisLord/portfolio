@@ -8,7 +8,7 @@ RUN npm install
 
 RUN npm run build
 
-FROM httpd:lts-alpine AS runtime
+FROM httpd:2.4-alpine AS runtime
 
 RUN apt-get update && apt-get install -y curl wget && apt-get clean
 
