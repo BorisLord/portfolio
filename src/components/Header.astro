@@ -1,0 +1,72 @@
+---
+import { Icon } from "astro-icon/components";
+import type { Link } from "../layouts/Layout.astro";
+const { links } = Astro.props;
+const currentPath = Astro.url.pathname;
+import {
+  Astronav,
+  MenuItems,
+  MenuIcon,
+  Dropdown,
+  DropdownItems,
+  DropdownSubmenu,
+} from "astro-navbar";
+---
+
+<section
+  class="h-auto bg-gray-700 text-white flex justify-center items-start py-10"
+>
+  <div class="w-full max-w-screen-md px-6 text-white">
+    <div class="flex flex-col">
+      <div class="text-left mb-6">
+        <h1 class="text-3xl font-bold -ml-0.5 mb-2">Boris</h1>
+        <h2 class="text-lg">Software Developer</h2>
+        <p class="text-sm">Paris, France</p>
+      </div>
+
+      <div class="flex gap-4 text-white mb-15">
+        <a href="mailto:boris@dellabs.nexus" class="hover:text-black text-2xl">
+          <Icon name="line-md:github-loop" size="28" />
+        </a>
+        <a
+          href="https://github.com/BorisLord"
+          target="_blank"
+          class="hover:text-black text-2xl"
+        >
+          <Icon name="line-md:email-plus" size="28" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/johndoe/"
+          target="_blank"
+          class="hover:text-black text-2xl"
+        >
+          <Icon name="line-md:linkedin" size="28" />
+        </a>
+      </div>
+
+      <nav
+        aria-label="Main Navigation"
+        class="bg-gray-700 mb-6 text-left -ml-2"
+      >
+        <ul class="flex flex-wrap gap-4">
+          {
+            links.map((link: Link) => (
+              <li>
+                <a
+                  class={`tracking-widest text-blue-600 transition hover:text-emerald-600 px-2 py-2 rounded-lg border border-transparent hover:border-gray-300 ${
+                    currentPath === link.href
+                      ? "text-blue-400 font-extrabold"
+                      : ""
+                  }`}
+                  href={link.href}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </div>
+  </div>
+</section>
