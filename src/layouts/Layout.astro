@@ -1,17 +1,6 @@
 ---
 import "../styles/global.css";
 import Header from "../components/Header.astro";
-
-export type Link = {
-  label: string;
-  href: string;
-};
-
-const links: Link[] = [
-  { label: "Home", href: "/" },
-  { label: "Projects", href: "/Projects" },
-  { label: "About Me", href: "/About" },
-];
 ---
 
 <!doctype html>
@@ -24,11 +13,10 @@ const links: Link[] = [
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <Header links={links} />
+    <Header />
     <main>
       <slot />
     </main>
   </body>
 </html>
 
-<!-- <body class="bg-sky-950"> -->
