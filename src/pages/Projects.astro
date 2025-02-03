@@ -1,118 +1,63 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+export type project = {
+  title: string;
+  content: string;
+  stack: string;
+  link?: string;
+  slug: string;
+};
+
+export const projects: project[] = [
+  {
+    title: "JSR",
+    slug: "jsr",
+    stack: "postres, Fresh, deno, rust",
+    link: "https://jsr.io/",
+    content: ` An issue was openned to had the abiility to view the number of package dependant the package add.
+A first contribution for me, so i had to locally run the project and start digging,
+I/ve made significant amount of skill progress by realising this features.
+Made sql counter, routing through rust and diplay it with fresh
+Tech stack is rust for backend / postreSQL / Fresh (Deno frontEnd framework based on Preact)`,
+  },
+  {
+    title: "tg-fetcher",
+    slug: "tg-fetcher",
+    stack: "Deno, Typescript, postgres",
+    content: `Microservise used to fetch data from telegram from any group, then registered data into a database
+orderOrbit backend is using data to process it and spread accros desire brooker.`,
+  },
+];
 ---
 
 <Layout>
-  <div class="flex justify-center items-center text-center text-2xl">
-    <p>
-      Bacon ipsum dolor amet ball tip sirloin jowl ribeye strip steak capicola.
-      Burgdoggen pork loin tenderloin bacon brisket kielbasa. Filet mignon
-      shankle corned beef salami, buffalo flank swine chuck hamburger chislic
-      kielbasa beef ribs. Sausage corned beef venison pancetta landjaeger pork
-      belly. Rump cow pig tri-tip, pancetta bresaola ball tip. Buffalo flank
-      meatball ground round ball tip brisket chicken andouille tongue t-bone
-      picanha filet mignon beef ribs. Pork belly sausage ball tip short loin.
-      Turducken fatback buffalo shank, shoulder kielbasa cupim biltong hamburger
-      shankle andouille strip steak pork tenderloin pork belly. Drumstick cow
-      ham hock sausage pancetta tail picanha alcatra flank ribeye. Flank pig
-      t-bone boudin ribeye pork belly pork tongue sausage andouille cow
-      tenderloin landjaeger alcatra. Beef boudin ham ham hock corned beef short
-      loin shankle andouille shoulder burgdoggen sausage. Porchetta ground round
-      kielbasa filet mignon brisket shank strip steak tail sausage bacon spare
-      ribs biltong. Rump turducken tongue pork belly ribeye fatback beef boudin
-      pig chislic. Porchetta leberkas cow pancetta, pig meatball chislic flank
-      hamburger sausage alcatra fatback chuck. Drumstick pastrami meatball short
-      loin, leberkas buffalo swine boudin ham hock sausage pig turducken cow
-      prosciutto turkey. Bacon cow frankfurter, boudin jowl chicken ham hock pig
-      landjaeger rump alcatra tenderloin. Pork belly ball tip cupim, hamburger
-      andouille drumstick alcatra bacon brisket porchetta filet mignon sirloin
-      bresaola pig frankfurter. Tenderloin frankfurter buffalo, pancetta pork
-      loin turducken salami boudin strip steak meatball sausage cupim
-      prosciutto. Porchetta chicken kielbasa tail boudin pork belly. Sausage
-      boudin fatback andouille strip steak spare ribs pork turkey chuck tail ham
-      hock beef kevin shankle. Shankle meatloaf ribeye ground round brisket
-      fatback cow sausage picanha tail shank. Salami turducken meatball ribeye
-      bacon meatloaf, pig jerky andouille. Turducken meatloaf prosciutto, swine
-      filet mignon tail buffalo. Andouille sirloin frankfurter hamburger, beef
-      ribs kevin venison strip steak landjaeger filet mignon. Jowl ribeye
-      shankle, beef ribs capicola prosciutto pastrami. Flank capicola andouille,
-      jerky pig chuck tongue. Buffalo ham hock rump spare ribs, flank short loin
-      beef ribs t-bone kevin chislic. Meatloaf turkey doner hamburger. Tri-tip
-      cow boudin ham hock, fatback porchetta buffalo ground round drumstick
-      shoulder beef ribs tail cupim. Does your lorem ipsum text long for
-      something a little meatier? Give our generator a try… it’s tasty! Bacon
-      ipsum dolor amet ball tip sirloin jowl ribeye strip steak capicola.
-      Burgdoggen pork loin tenderloin bacon brisket kielbasa. Filet mignon
-      shankle corned beef salami, buffalo flank swine chuck hamburger chislic
-      kielbasa beef ribs. Sausage corned beef venison pancetta landjaeger pork
-      belly. Rump cow pig tri-tip, pancetta bresaola ball tip. Buffalo flank
-      meatball ground round ball tip brisket chicken andouille tongue t-bone
-      picanha filet mignon beef ribs. Pork belly sausage ball tip short loin.
-      Turducken fatback buffalo shank, shoulder kielbasa cupim biltong hamburger
-      shankle andouille strip steak pork tenderloin pork belly. Drumstick cow
-      ham hock sausage pancetta tail picanha alcatra flank ribeye. Flank pig
-      t-bone boudin ribeye pork belly pork tongue sausage andouille cow
-      tenderloin landjaeger alcatra. Beef boudin ham ham hock corned beef short
-      loin shankle andouille shoulder burgdoggen sausage. Porchetta ground round
-      kielbasa filet mignon brisket shank strip steak tail sausage bacon spare
-      ribs biltong. Rump turducken tongue pork belly ribeye fatback beef boudin
-      pig chislic. Porchetta leberkas cow pancetta, pig meatball chislic flank
-      hamburger sausage alcatra fatback chuck. Drumstick pastrami meatball short
-      loin, leberkas buffalo swine boudin ham hock sausage pig turducken cow
-      prosciutto turkey. Bacon cow frankfurter, boudin jowl chicken ham hock pig
-      landjaeger rump alcatra tenderloin. Pork belly ball tip cupim, hamburger
-      andouille drumstick alcatra bacon brisket porchetta filet mignon sirloin
-      bresaola pig frankfurter. Tenderloin frankfurter buffalo, pancetta pork
-      loin turducken salami boudin strip steak meatball sausage cupim
-      prosciutto. Porchetta chicken kielbasa tail boudin pork belly. Sausage
-      boudin fatback andouille strip steak spare ribs pork turkey chuck tail ham
-      hock beef kevin shankle. Shankle meatloaf ribeye ground round brisket
-      fatback cow sausage picanha tail shank. Salami turducken meatball ribeye
-      bacon meatloaf, pig jerky andouille. Turducken meatloaf prosciutto, swine
-      filet mignon tail buffalo. Andouille sirloin frankfurter hamburger, beef
-      ribs kevin venison strip steak landjaeger filet mignon. Jowl ribeye
-      shankle, beef ribs capicola prosciutto pastrami. Flank capicola andouille,
-      jerky pig chuck tongue. Buffalo ham hock rump spare ribs, flank short loin
-      beef ribs t-bone kevin chislic. Meatloaf turkey doner hamburger. Tri-tip
-      cow boudin ham hock, fatback porchetta buffalo ground round drumstick
-      shoulder beef ribs tail cupim. Does your lorem ipsum text long for
-      something a little meatier? Give our generator a try… it’s tasty!Bacon
-      ipsum dolor amet ball tip sirloin jowl ribeye strip steak capicola.
-      Burgdoggen pork loin tenderloin bacon brisket kielbasa. Filet mignon
-      shankle corned beef salami, buffalo flank swine chuck hamburger chislic
-      kielbasa beef ribs. Sausage corned beef venison pancetta landjaeger pork
-      belly. Rump cow pig tri-tip, pancetta bresaola ball tip. Buffalo flank
-      meatball ground round ball tip brisket chicken andouille tongue t-bone
-      picanha filet mignon beef ribs. Pork belly sausage ball tip short loin.
-      Turducken fatback buffalo shank, shoulder kielbasa cupim biltong hamburger
-      shankle andouille strip steak pork tenderloin pork belly. Drumstick cow
-      ham hock sausage pancetta tail picanha alcatra flank ribeye. Flank pig
-      t-bone boudin ribeye pork belly pork tongue sausage andouille cow
-      tenderloin landjaeger alcatra. Beef boudin ham ham hock corned beef short
-      loin shankle andouille shoulder burgdoggen sausage. Porchetta ground round
-      kielbasa filet mignon brisket shank strip steak tail sausage bacon spare
-      ribs biltong. Rump turducken tongue pork belly ribeye fatback beef boudin
-      pig chislic. Porchetta leberkas cow pancetta, pig meatball chislic flank
-      hamburger sausage alcatra fatback chuck. Drumstick pastrami meatball short
-      loin, leberkas buffalo swine boudin ham hock sausage pig turducken cow
-      prosciutto turkey. Bacon cow frankfurter, boudin jowl chicken ham hock pig
-      landjaeger rump alcatra tenderloin. Pork belly ball tip cupim, hamburger
-      andouille drumstick alcatra bacon brisket porchetta filet mignon sirloin
-      bresaola pig frankfurter. Tenderloin frankfurter buffalo, pancetta pork
-      loin turducken salami boudin strip steak meatball sausage cupim
-      prosciutto. Porchetta chicken kielbasa tail boudin pork belly. Sausage
-      boudin fatback andouille strip steak spare ribs pork turkey chuck tail ham
-      hock beef kevin shankle. Shankle meatloaf ribeye ground round brisket
-      fatback cow sausage picanha tail shank. Salami turducken meatball ribeye
-      bacon meatloaf, pig jerky andouille. Turducken meatloaf prosciutto, swine
-      filet mignon tail buffalo. Andouille sirloin frankfurter hamburger, beef
-      ribs kevin venison strip steak landjaeger filet mignon. Jowl ribeye
-      shankle, beef ribs capicola prosciutto pastrami. Flank capicola andouille,
-      jerky pig chuck tongue. Buffalo ham hock rump spare ribs, flank short loin
-      beef ribs t-bone kevin chislic. Meatloaf turkey doner hamburger. Tri-tip
-      cow boudin ham hock, fatback porchetta buffalo ground round drumstick
-      shoulder beef ribs tail cupim. Does your lorem ipsum text long for
-      something a little meatier? Give our generator a try… it’s tasty!
-    </p>
+  <div class="flex justify-center items-start mt-6">
+    <div class="w-full max-w-screen-md px-6">
+      <h1 class="text-2xl font-bold mb-4">Projects</h1>
+      <div class="space-y-6">
+        {
+          projects.map((project) => (
+            <div class="border rounded-lg shadow-lg p-4 bg-white">
+              <a
+                href={`/project/${project.slug}`}
+                class="text-xl font-semibold text-blue-500 hover:underline"
+              >
+                {project.title}
+              </a>
+              <p class="text-gray-600">{project.stack}</p>
+              {project.link && (
+                <a
+                  href={project.link}
+                  class="text-blue-500 hover:underline mt-2 block"
+                >
+                  View Project
+                </a>
+              )}
+            </div>
+          ))
+        }
+      </div>
+    </div>
   </div>
 </Layout>
