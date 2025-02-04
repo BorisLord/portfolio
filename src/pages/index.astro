@@ -1,26 +1,29 @@
 ---
+import Card from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <div class="flex justify-center items-start mt-6">
+  <div class="flex justify-center items-start mt-6 pb-12">
     <div class="w-full max-w-screen-md px-6">
-      <p>
-        Fullstack Dev evolving into a web3 Dev.<br />
-        I’m building/crafting thing that matter, for you for me for you’re client
-      </p>
-      <p>
-        I’ve started my journey in 2021 with freecodecamp. Few month later i
-        joined AdaTechSchool to follow their path : One year in school crafting
-        project, 1 year in internship. I like to code clean, it’s mean it take
-        time and ressource. Recently i started to selfhost my project, so i had
-        to selfhost and managed my server, I’m using coolify to manage most of
-        my container. I gain habilities to discover docker network and buildind
-        efficient docker image. having some knowledge with ports, CI/CD, routing
-        My next project will be focused on blockchain technologie because it’s a
-        tech i like and i started programming for reaching my goal. working in
-        the blockchain ecosystem
-      </p>
+      <Card extraClass="px-6 py-4 flex flex-col gap-4 text-justify">
+        <p>
+          Fullstack Dev evolving into a web3 Dev.<br />
+          I’m building/crafting things that matter, for you, for me, for your client.
+        </p>
+        <p>
+          I’ve started my journey in 2021 with FreeCodeCamp. A few months later,
+          I joined AdaTechSchool to follow their path: one year in school
+          crafting projects, one year in internship. I like to write clean code,
+          which means it takes time and resources. Recently, I started to
+          self-host my projects, so I had to manage my own server. I’m using
+          Coolify to manage most of my containers. I gained experience in Docker
+          networking and building efficient Docker images, as well as knowledge
+          in ports, CI/CD, and routing. My next project will be focused on
+          blockchain technology because it’s a field I love, and I started
+          programming to reach this goal: working in the blockchain ecosystem.
+        </p>
+      </Card>
     </div>
   </div>
 </Layout>

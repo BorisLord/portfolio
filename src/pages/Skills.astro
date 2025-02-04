@@ -1,7 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import adonisIcon from "../assets/adonis.svg";
+// import adonisIcon from "../assets/adonis.svg";
 import { Icon } from "astro-icon/components";
+import Card from "../components/Card.astro";
 
 const core = [
   { name: "TypeScript", icon: "devicon:typescript" },
@@ -34,22 +35,21 @@ const used = [
   { name: "Redis", icon: "devicon:redis" },
 ];
 
-const lib = [
-  { name: "Next.js", icon: "" },
-  { name: "BabylonJS", icon: "" },
-  { name: "CCXT", icon: "" },
-];
+// const lib = [
+//   { name: "Next.js", icon: "" },
+//   { name: "BabylonJS", icon: "" },
+//   { name: "CCXT", icon: "" },
+// ];
 ---
 
 <Layout>
-  <div class="flex justify-center items-start mt-6">
+  <div class="flex justify-center items-start mt-6 pb-12">
     <div class="w-full max-w-screen-md px-6 space-y-6">
       {
         [
           { title: "Core", data: core },
           { title: "Used", data: used },
           { title: "Explore", data: toExplore },
-          { title: "Libraries", data: lib },
           { title: "Tools", data: tool },
         ].map((category) => (
             <h2 class="text-xl text-slate-700 mb-3">
@@ -57,14 +57,14 @@ const lib = [
             </h2>
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
               {category.data.map((tech) => (
-                <div class="flex items-center justify-center bg-orange-50 shadow-lg rounded-lg p-3">
-                  {tech.icon.startsWith("devicon") ? (
-                    <Icon name={tech.icon} class="text-2xl mr-3" />
-                  ) : (
+                  <Card extraClass="flex items-center justify-center p-3">
+                    {tech.icon.startsWith("devicon") ? (
+                      <Icon name={tech.icon} class="text-2xl mr-3" />
+                    ) : (
                     <span class="text-xl font mr-3">Ø</span>
                   )}
                   <p class="text-gray-600">{tech.name}</p>
-                </div>
+                  </Card>
               ))}
             </div>
         ))
@@ -72,3 +72,5 @@ const lib = [
     </div>
   </div>
 </Layout>
+
+
