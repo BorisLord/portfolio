@@ -7,10 +7,9 @@ export type link = {
 };
 
 const links: link[] = [
-  { label: "Home", href: "/" },
+  { label: "Me", href: "/" },
   { label: "Projects", href: "/Projects" },
-  { label: "Stack", href: "/Stack" },
-  { label: "Me", href: "/Me" },
+  { label: "Skills", href: "/Skills" },
 ];
 ---
 
@@ -20,9 +19,9 @@ const links: link[] = [
       links.map((link: link) => (
         <li>
           <a
-            class={`tracking-widest px-2 ${
-              currentPath === link.href
-                ? "font-extrabold underline decoration-rose-700"
+            class={`tracking-widest px-2 text-lg ${
+              currentPath.replace(/\/$/, "") === link.href.replace(/\/$/, "")
+                ? "font-extrabold underline decoration-red-700 decoration-3 underline-offset-3"
                 : ""
             }`}
             href={link.href}
