@@ -1,32 +1,73 @@
 ---
+import { Icon } from "astro-icon/components";
 import Layout from "../layouts/Layout.astro";
 
 export type project = {
   title: string;
-  content: string;
+  description: string;
   stack: string;
   link?: string;
-  slug: string;
 };
 
 export const projects: project[] = [
   {
+    title: "Jahwallet",
+    stack: "Java",
+    link: "",
+    description: `To come => Web3 wallet written in Java`,
+  },
+  {
     title: "JSR",
-    slug: "jsr",
-    stack: "postres, Fresh, deno, rust",
+    stack: "Postgres, Fresh, Deno, Rust",
     link: "https://jsr.io/",
-    content: ` An issue was openned to had the abiility to view the number of package dependant the package add.
+    description: ` An issue was openned to had the abiility to view the number of package dependant the package add.
 A first contribution for me, so i had to locally run the project and start digging,
 I/ve made significant amount of skill progress by realising this features.
 Made sql counter, routing through rust and diplay it with fresh
 Tech stack is rust for backend / postreSQL / Fresh (Deno frontEnd framework based on Preact)`,
   },
   {
-    title: "tg-fetcher",
-    slug: "tg-fetcher",
-    stack: "Deno, Typescript, postgres",
-    content: `Microservise used to fetch data from telegram from any group, then registered data into a database
+    title: "Telegram-fetcher",
+    link: "https://github.com/BorisLord/tg-fetcher",
+    stack: "Deno, Typescript, Postgres",
+    description: `Microservise used to fetch data from telegram from any group, then registered data into a database
 orderOrbit backend is using data to process it and spread accros desire brooker.`,
+  },
+  {
+    title: "Act-In-Mad",
+    link: "https://actinmad.art/",
+    stack: "Astro, Typescript, Pocketbase",
+    description: `Website / Blog for The company and schoold theater in Paris. build with astro and pocketbase (baas)
+update will have registration form, backend is Pocketbase because it’s simple, well build and fast to ship. for a company this size this is a great choise from effecienty and economy`,
+  },
+  {
+    title: "OrderOrbit",
+    link: "https://orderorbit-staging.dellabs.nexus/",
+    stack: "AdonisJS, Typescript, Postgres, React",
+    description: `It give you the abilities to trade crypto accros multiple broker like binance, gate.io and more using ccxt an unifined api.
+I used React, Adonisjs, PostreSQL, adonisjs is an oppinated backend`,
+  },
+  {
+    title: "This-Portfolio",
+    link: "https://me.dellabs.nexus/",
+    stack: "Astro, Typescript, Tailwind",
+    description: `simple Astro js that present me, build with tailwind and no JS ship to the browser,`,
+  },
+  {
+    title: "Infotracker",
+    link: "https://infotracker.dellabs.nexus/",
+    stack: "React, Javascript, Tailwind",
+    description: `InfoTracker is a lightweight application designed to demonstrate what information a browser can access from your system without requiring additional permissions.
+No server is connected to this app, so only client-side methods are shown`,
+  },
+  {
+    title: "Rubik's",
+    link: "", //need link
+    stack: "BabylonJS, Typescript",
+    description: `During covid Time i found a rubik’s cube from my childhood so i decide to spend some time to solve it. succes 1.12sec is my record!
+So i decided to code simple rubik’s cube, you can’t solve yet, i encounter a real difficulty when i started to tried to make the rubiks turning.
+Babylonjs is a threejs like librairy used and maintain by microsoft
+In a corner of my brain, i will go back on this project and finish my cube to solve it`,
   },
 ];
 ---
@@ -34,26 +75,32 @@ orderOrbit backend is using data to process it and spread accros desire brooker.
 <Layout>
   <div class="flex justify-center items-start mt-6">
     <div class="w-full max-w-screen-md px-6">
-      <h1 class="text-2xl font-bold mb-4">Projects</h1>
       <div class="space-y-6">
         {
           projects.map((project) => (
-            <div class="border rounded-lg shadow-lg p-4 bg-white">
-              <a
-                href={`/project/${project.slug}`}
-                class="text-xl font-semibold text-blue-500 hover:underline"
-              >
-                {project.title}
-              </a>
-              <p class="text-gray-600">{project.stack}</p>
-              {project.link && (
+            <div class="rounded-lg shadow-lg px-6 py-4 bg-orange-50 flex flex-col sm:flex-row md:items-center justify-between">
+              <div>
                 <a
-                  href={project.link}
-                  class="text-blue-500 hover:underline mt-2 block"
+                  href={`/project/${project.title}`}
+                  class="text-xl font-semibold text-slate-700 hover:text-red-700 hover:underline"
                 >
-                  View Project
+                  {project.title}
                 </a>
-              )}
+                <p class="text-gray-600">{project.stack}</p>
+              </div>
+              <div class="mt-2 sm:mt-0">
+                {project.link ? (
+                  <a
+                    href={project.link}
+                    class="flex items-center gap-1 text-blue-500 hover:text-red-700 hover:underline"
+                  >
+                    Project
+                    <Icon name="line-md:arrow-right" />
+                  </a>
+                ) : (
+                  <span class="text-gray-500 italic">Coming Soon</span>
+                )}
+              </div>
             </div>
           ))
         }
