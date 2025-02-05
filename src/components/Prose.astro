@@ -1,6 +1,7 @@
 ---
+const { extraClass } = Astro.props;
 ---
 
-<div class="prose">
+<div class=`prose ${extraClass}`>
   <slot />
 </div>

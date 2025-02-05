@@ -11,7 +11,7 @@ const projectMDX = await getCollection("projects");
     <div class="w-full max-w-screen-md px-6">
       <div class="space-y-6">
         {
-          projectMDX.map(({ data, body }) => (
+          projectMDX.map(({ data }) => (
             <DetailsCard
               data={data}
               extraClass="px-6 py-4 flex flex-col sm:flex-row md:items-center justify-between"
