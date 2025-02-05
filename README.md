@@ -1,4 +1,1 @@
-My portfolio
-
-npm i
-npm run buildPrev
+Check my portfolio [here](https://me.dellabs.nexus/)
