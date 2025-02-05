@@ -1,84 +1,9 @@
 ---
-import { Icon } from "astro-icon/components";
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import DetailsCard from "../components/DetailsCard.astro";
+import { getCollection } from "astro:content";
 
-export type project = {
-  title: string;
-  description: string;
-  stack: string;
-  link?: string;
-  git?: string;
-};
-
-export const projects: project[] = [
-  {
-    title: "JaWallet",
-    stack: "Java",
-    description: `To come => Web3 wallet written in Java`,
-  },
-  {
-    title: "JSR",
-    stack: "Postgres, Fresh, Deno, Rust",
-    link: "https://jsr.io/",
-    git: "https://github.com/BorisLord/jsr",
-    description: ` An issue was openned to had the abiility to view the number of package dependant the package add.
-A first contribution for me, so i had to locally run the project and start digging,
-I/ve made significant amount of skill progress by realising this features.
-Made sql counter, routing through rust and diplay it with fresh
-Tech stack is rust for backend / postreSQL / Fresh (Deno frontEnd framework based on Preact)`,
-  },
-  {
-    title: "Telegram-fetcher",
-    link: "https://github.com/BorisLord/tg-fetcher",
-    git: "https://github.com/BorisLord/tg-fetcher",
-    stack: "Deno, Typescript, Postgres",
-    description: `Microservise used to fetch data from telegram from any group, then registered data into a database
-orderOrbit backend is using data to process it and spread accros desire brooker.`,
-  },
-  {
-    title: "Act-In-Mad",
-    link: "https://actinmad.art/",
-    git: "https://github.com/BorisLord/actInMad",
-    stack: "Astro, Typescript, Pocketbase",
-    description: `Website / Blog for The company and schoold theater in Paris. build with astro and pocketbase (baas)
-update will have registration form, backend is Pocketbase because it’s simple, well build and fast to ship. for a company this size this is a great choise from effecienty and economy`,
-  },
-  {
-    title: "OrderOrbit",
-    link: "https://orderorbit-staging.dellabs.nexus/",
-    git: "https://github.com/BorisLord/orderOrbitInertia",
-    stack: "AdonisJS, Typescript, Postgres, React",
-    description: `It give you the abilities to trade crypto accros multiple broker like binance, gate.io and more using ccxt an unifined api.
-I used React, Adonisjs, PostreSQL, adonisjs is an oppinated backend`,
-  },
-  {
-    title: "This-Portfolio",
-    link: "https://me.dellabs.nexus/",
-    git: "https://github.com/BorisLord/portfolio",
-    stack: "Astro, Typescript, Tailwind",
-    description: `simple Astro js that present me, build with tailwind and no JS ship to the browser,`,
-  },
-  {
-    title: "Infotracker",
-    link: "https://infotracker.dellabs.nexus/",
-    git: "https://github.com/BorisLord/infoTracker",
-    stack: "React, Javascript, Tailwind",
-    description: `InfoTracker is a lightweight application designed to demonstrate what information a browser can access from your system without requiring additional permissions.
-No server is connected to this app, so only client-side methods are shown`,
-  },
-  {
-    title: "Rubik's",
-    link: "https://borislord.github.io/rubiks",
-    git: "https://github.com/BorisLord/rubiks",
-    stack: "Preact, BabylonJS, Typescript, Tailwind",
-    description: `
-During the COVID period, I order a Rubik’s Cube and decided to spend some time to solve it. Success! My best time is 1.12 minute.
-This inspired me to code a simple Rubik’s Cube simulation. You can’t solve it yet, though—I ran into a real challenge when trying to implement the cube’s rotations.
-I used BabylonJS, a 3D library like Three.js, maintained by Microsoft.
-Somewhere in the back of my brain, I know I’ll come back to this project one day and make the cube fully solvable.`,
-  },
-];
+const projectMDX = await getCollection("projects");
 ---
 
 <Layout>
@@ -86,43 +11,11 @@ Somewhere in the back of my brain, I know I’ll come back to this project one d
     <div class="w-full max-w-screen-md px-6">
       <div class="space-y-6">
         {
-          projects.map((project) => (
-            <Card extraClass="px-6 py-4 flex flex-col sm:flex-row md:items-center justify-between">
-              <div>
-                <p class="text-xl font-semibold text-slate-700">
-                  {project.title}
-                </p>
-                <p class="text-gray-600">{project.stack}</p>
-              </div>
-              <div class="mt-2 sm:mt-0 text-right flex space-x-4">
-                <a
-                  href={`/project/${project.title}`}
-                  class="flex items-center gap-1 text-blue-400 hover:text-red-700 hover:underline"
-                >
-                  Description
-                </a>
-                {project.link ? (
-                  <a
-                    href={project.link}
-                    class="flex items-center gap-1 text-blue-400 hover:text-red-700 hover:underline"
-                  >
-                    Project
-                  </a>
-                ) : (
-                  <span class="text-gray-500 italic">Ø</span>
-                )}
-                {project.git ? (
-                  <a
-                    href={project.git}
-                    class="flex items-center gap-1 text-blue-400 hover:text-red-700 hover:underline"
-                  >
-                    Git
-                  </a>
-                ) : (
-                  <span class="text-gray-500 italic">Ø</span>
-                )}
-              </div>
-            </Card>
+          projectMDX.map(({ data, body }) => (
+            <DetailsCard
+              data={data}
+              extraClass="px-6 py-4 flex flex-col sm:flex-row md:items-center justify-between"
+            />
           ))
         }
       </div>

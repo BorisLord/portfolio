@@ -1,0 +1,44 @@
+---
+const { extraClass, data } = Astro.props;
+---
+
+<div class={`bg-orange-50 rounded-lg shadow-lg ${extraClass}`}>
+  <div>
+    <p class="text-xl font-semibold text-slate-700">
+      {data.title}
+    </p>
+    <p class="text-gray-600">{data.stack}</p>
+  </div>
+  <div class="mt-2 sm:mt-0 text-right flex space-x-4">
+    <a
+      href={`/project/${data.title}`}
+      class="flex items-center gap-1 text-blue-400 hover:text-red-700 hover:underline"
+    >
+      Details
+    </a>
+    {
+      data.link ? (
+        <a
+          href={data.link}
+          class="flex items-center gap-1 text-blue-400 hover:text-red-700 hover:underline"
+        >
+          Demo
+        </a>
+      ) : (
+        <span class="text-gray-500 italic">Ø</span>
+      )
+    }
+    {
+      data.git ? (
+        <a
+          href={data.git}
+          class="flex items-center gap-1 text-blue-400 hover:text-red-700 hover:underline"
+        >
+          Git
+        </a>
+      ) : (
+        <span class="text-gray-500 italic">Ø</span>
+      )
+    }
+  </div>
+</div>
