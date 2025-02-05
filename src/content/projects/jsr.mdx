@@ -4,12 +4,16 @@ stack: "Postgres, Fresh, Deno, Rust"
 link: "https://jsr.io/"
 git: "https://github.com/BorisLord/jsr"
 ---
-An issue was opened to add the ability to view the number of dependent packages for a given package.  
-This was my first contribution, so I had to set up the project locally and start digging.  
 
-I made significant skill progress while implementing this feature.  
-- Built an SQL counter  
-- Handled routing in Rust  
-- Displayed the data using Fresh (Deno frontend framework based on Preact)  
+A feature was requested to show the number of dependent packages and package dependencies for a given package.
 
-Tech stack: Rust for the backend, PostgreSQL for data storage, and Fresh for the frontend.
+This was my first contribution to opensource. I had to set up the project locally and explore the codebase.
+
+I learned a lot while working on this feature.
+
+The main steps were:
+- Writing two SQL queries using COUNT()
+- Handling routing in Rust
+- Displaying the data using Fresh
+
+[PR link](https://github.com/jsr-io/jsr/pull/857)
