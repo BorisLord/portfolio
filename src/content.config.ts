@@ -8,6 +8,7 @@ const projects = defineCollection({
     link: z.string().optional(),
     git: z.string().optional(),
     stack: z.string(),
+    sortOrder: z.number(),
   }),
 });
 
