@@ -1,76 +1,98 @@
 ---
 import Layout from "../layouts/Layout.astro";
-// import adonisIcon from "../assets/adonis.svg";
 import { Icon } from "astro-icon/components";
 import Card from "../components/Card.astro";
 
 const core = [
   { name: "TypeScript", icon: "devicon:typescript" },
-  // { name: "Adonis.JS", icon: adonisIcon.src },
-  { name: "Adonis.js", icon: "" },
-  { name: "Node.js", icon: "devicon:nodejs-wordmark" },
-  { name: "PostgreSQL", icon: "devicon:postgresql" },
+  { name: "NodeJS", icon: "devicon:nodejs-wordmark" },
+  { name: "Deno", icon: "devicon:denojs" },
+  { name: "AdonisJS", icon: "" },
   { name: "Astro", icon: "devicon:astro" },
   { name: "React", icon: "devicon:react" },
   { name: "TailwindCSS", icon: "devicon:tailwindcss" },
+  { name: "PostgreSQL", icon: "devicon:postgresql" },
 ];
 
 const tool = [
+  { name: "VScode", icon: "devicon:vscode" },
   { name: "Git", icon: "devicon:git" },
   { name: "Bash", icon: "devicon:bash" },
   { name: "Docker", icon: "devicon:docker" },
+  { name: "Cloudflare", icon: "devicon:cloudflare" },
   { name: "CI/CD", icon: "" },
   { name: "APIs", icon: "" },
 ];
 
 const toExplore = [
   { name: "Java", icon: "devicon:java" },
+  { name: "Solidity", icon: "devicon:solidity" },
   { name: "Go", icon: "devicon:go" },
   { name: "React Nativ", icon: "devicon:reactnative-wordmark" },
 ];
 
 const used = [
   { name: "Rust", icon: "devicon:rust" },
+  { name: "NextJS", icon: "devicon:nextjs" },
   { name: "MongoDB", icon: "devicon:mongodb" },
   { name: "Redis", icon: "devicon:redis" },
 ];
 
-// const lib = [
-//   { name: "Next.js", icon: "" },
-//   { name: "BabylonJS", icon: "" },
-//   { name: "CCXT", icon: "" },
-// ];
+const softSkills = [
+  "Adaptability",
+  "Good Communication",
+  "Prioritization",
+  "Perseverance",
+  "Problem Solving",
+  "Continuous Learning",
+];
 ---
 
 <Layout>
   <div class="flex justify-center items-start mt-6 pb-12">
     <div class="w-full max-w-screen-md px-6 space-y-6">
+      <div class="grid grid-cols-2 gap-4">
+        <Card extraClass="flex items-center justify-center p-3 text-gray-600">
+          <Icon name="flagpack:fr" class="mr-3" />
+          French</Card
+        >
+        <Card extraClass="flex items-center justify-center p-3 text-gray-600">
+          <Icon name="flagpack:gb-ukm" class="mr-3" />
+          English C1
+        </Card>
+        {
+          softSkills.map((skill) => (
+            <Card
+              content={skill}
+              extraClass="flex items-center justify-center text-center p-3 text-gray-600"
+            />
+          ))
+        }
+      </div>
       {
         [
           { title: "Core", data: core },
           { title: "Used", data: used },
-          { title: "Explore", data: toExplore },
           { title: "Tools", data: tool },
+          { title: "Might Explore One Day", data: toExplore },
         ].map((category) => (
-            <h2 class="text-xl text-slate-700 mb-3">
-              {category.title}
-            </h2>
+          <>
+            <h2 class="text-xl text-slate-700 mb-3">{category.title}</h2>
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
               {category.data.map((tech) => (
-                  <Card extraClass="flex items-center justify-center p-3">
-                    {tech.icon.startsWith("devicon") ? (
-                      <Icon name={tech.icon} class="text-2xl mr-3" />
-                    ) : (
-                    <span class="text-xl font mr-3">Ø</span>
+                <Card extraClass="flex items-center justify-center p-3">
+                  {tech.icon.startsWith("devicon") ? (
+                    <Icon name={tech.icon} class="text-2xl mr-3" />
+                  ) : (
+                    <span class="text-xl mr-3">Ø</span>
                   )}
                   <p class="text-gray-600">{tech.name}</p>
-                  </Card>
+                </Card>
               ))}
             </div>
+          </>
         ))
       }
     </div>
   </div>
 </Layout>
-
-
