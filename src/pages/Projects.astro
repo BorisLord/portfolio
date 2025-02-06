@@ -6,7 +6,7 @@ import { getCollection } from "astro:content";
 const projectMDX = await getCollection("projects");
 
 const sortedProjects = projectMDX.sort(
-  (a, b) => a.data.sortOrder - b.data.sortOrder
+  (a, b) => a.data.sortOrder - b.data.sortOrder,
 );
 ---
 

@@ -1,7 +1,7 @@
 ---
-const { extraClass: additionalClasses = "" } = Astro.props;
+const { extraClass, content } = Astro.props;
 ---
 
-<div class={`bg-orange-50 rounded-lg shadow-lg ${additionalClasses}`}>
-  <slot />
+<div class={`bg-orange-50 rounded-lg shadow-lg ${extraClass}`}>
+  {content ? content : <slot />}
 </div>
