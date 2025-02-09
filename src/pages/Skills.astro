@@ -29,6 +29,7 @@ const toExplore = [
   { name: "Solidity", icon: "devicon:solidity" },
   { name: "Go", icon: "devicon:go" },
   { name: "React Nativ", icon: "devicon:reactnative-wordmark" },
+  { name: "gRPC/tRPC", icon: "devicon:trpc" },
 ];
 
 const used = [
@@ -38,14 +39,22 @@ const used = [
   { name: "Redis", icon: "devicon:redis" },
 ];
 
-const softSkills = [
-  "Adaptability",
-  "Good Communication",
-  "Prioritization",
-  "Perseverance",
-  "Problem Solving",
-  "Continuous Learning",
-];
+// const softSkills = [
+//   "Adaptability",
+//   "Good Communication",
+//   "Prioritization",
+//   "Perseverance",
+//   "Problem Solving",
+//   "Continuous Learning",
+// ];
+//  {
+//   softSkills.map((skill) => (
+//     <Card
+//       content={skill}
+//       extraClass="flex items-center justify-center text-center p-3 text-gray-600"
+//     />
+//   ))
+// }
 ---
 
 <Layout>
@@ -60,14 +69,6 @@ const softSkills = [
           <Icon name="flagpack:gb-ukm" class="mr-3" />
           English C1
         </Card>
-        {
-          softSkills.map((skill) => (
-            <Card
-              content={skill}
-              extraClass="flex items-center justify-center text-center p-3 text-gray-600"
-            />
-          ))
-        }
       </div>
       {
         [
