@@ -19,7 +19,77 @@ import Nav from "./Nav.astro";
           rel="noopener noreferrer"
           target="_blank"
         >
-          <Icon name="line-md:github-loop" size="28" />
+          <Icon name="line-md:github-loop" size="25" />
+        </a>
+        <a
+          href="https://leetcode.com/u/BorisLord/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-red-700 mt-0.3"
+        >
+          <svg
+            viewBox="0 0 25 25"
+            width="25"
+            height="25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M16 18l4-4-4-4"
+              stroke-dasharray="12"
+              stroke-dashoffset="12"
+            >
+              <animate
+                attributeName="stroke-dashoffset"
+                from="12"
+                to="0"
+                dur="0.7s"
+                fill="freeze"></animate>
+            </path>
+            <path
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M8 6l-4 4 4 4"
+              stroke-dasharray="12"
+              stroke-dashoffset="12"
+            >
+              <animate
+                attributeName="stroke-dashoffset"
+                from="12"
+                to="0"
+                dur="0.7s"
+                fill="freeze"
+                begin="0.2s"></animate>
+            </path>
+            <path
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M14 4l-4 16"
+              stroke-dasharray="20"
+              stroke-dashoffset="20"
+            >
+              <animate
+                attributeName="stroke-dashoffset"
+                from="20"
+                to="0"
+                dur="0.7s"
+                fill="freeze"
+                begin="0.4s"></animate>
+              <animate
+                attributeName="d"
+                values="M14 4l-4 16; M14 5l-4 14; M14 4l-4 16"
+                dur="1.5s"
+                repeatCount="indefinite"></animate>
+            </path>
+          </svg>
         </a>
         <a
           href="mailto:boris@dellabs.nexus"
@@ -27,10 +97,10 @@ import Nav from "./Nav.astro";
           rel="noopener noreferrer"
           class="hover:text-red-700"
         >
-          <Icon name="line-md:email-plus" size="28" />
+          <Icon name="line-md:email-plus" size="25" />
         </a>
         <a href="/dummy.pdf" target="_blank" class="hover:text-red-700">
-          <Icon name="line-md:file-download" size="28" />
+          <Icon name="line-md:file-download" size="25" />
         </a>
         <a
           href="https://www.linkedin.com/in/boris-d/"
@@ -38,7 +108,7 @@ import Nav from "./Nav.astro";
           rel="noopener noreferrer"
           class="hover:text-red-700"
         >
-          <Icon name="line-md:linkedin" size="28" />
+          <Icon name="line-md:linkedin" size="25" />
         </a>
       </div>
       <Nav />
