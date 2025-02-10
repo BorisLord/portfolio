@@ -14,6 +14,7 @@ const work = [
   {
     title: "Caarl",
     date: "2023 - 2024",
+    link: "https://www.caarl.fr/",
     subTitle: "Apprentice FullStack Developer",
     description: `Worked under the supervision of the lead developer to implement key features,
     including dashboards, recurring appointment functionality, API log retrieval and visualization, UI mockup integration, and form workflow implementation.
@@ -24,6 +25,7 @@ const education = [
   {
     title: "AdaTechSchool",
     date: "2022 - 2024",
+    link: "https://adatechschool.fr/",
     subTitle: "FullStack Web Development Program",
     description: `Two-year on-site web development training.
     The first year focused on project-based learning, primarily using the JavaScript ecosystem, including React, Node.js, and NoSQL databases.
@@ -33,6 +35,7 @@ const education = [
   {
     title: "CS50x",
     date: "2021",
+    link: "https://www.edx.org/learn/computer-science/harvard-university-cs50-s-introduction-to-computer-science",
     subTitle: "Introduction to Computer Science",
     description: `Gained foundational knowledge in computer science concepts, algorithms, and programming.
   Worked with C, Python, and SQL to solve problems related to data structures, memory management, and software engineering principles.`,
@@ -40,6 +43,7 @@ const education = [
   {
     title: "FreeCodeCamp",
     date: "2021",
+    link: "https://www.freecodecamp.org/",
     subTitle: "Basic HTML, CSS, JavaScript",
     description: `Acquired fundamental front-end development skills, including structuring web pages with HTML, styling with CSS, and adding interactivity using JavaScript.
       Worked on hands-on projects to apply best practices in responsive design and basic DOM manipulation.`,
@@ -59,11 +63,24 @@ const education = [
             <div class="relative flex mb-8">
               <div class="absolute left-4 top-0 h-full w-0.5 bg-red-700" />
               <div class="ml-8">
-                <div class="flex justify-between items-center">
-                  <h2 class="text-xl font-bold text-slate-700">{item.title}</h2>
-                  <p class="text-sm text-gray-600 mt-1.5">{item.date}</p>
+                <div class="flex">
+                  <div class="flex flex-col items-start">
+                    <h2 class="text-xl font-bold text-slate-700">
+                      {item.title}
+                    </h2>
+                    <p class="text-sm text-gray-600">{item.subTitle}</p>
+                  </div>
+                  <div class="flex flex-col items-end ml-auto">
+                    <a
+                      href={item.link}
+                      rel="noopener noreferrer"
+                      class="text-blue-400 hover:text-red-700 hover:underline"
+                    >
+                      link
+                    </a>
+                    <p class="text-sm text-gray-600 mt-1.5">{item.date}</p>
+                  </div>
                 </div>
-                <p class="text-sm text-gray-600">{item.subTitle}</p>
                 <p class="text-gray-700 text-sm mt-2 text-justify">
                   {item.description}
                 </p>
@@ -81,11 +98,24 @@ const education = [
             <div class="relative flex mb-8">
               <div class="absolute left-4 top-0 h-full w-0.5 bg-red-700" />
               <div class="ml-8">
-                <div class="flex justify-between items-center">
-                  <h2 class="text-xl font-bold text-slate-700">{item.title}</h2>
-                  <p class="text-sm text-gray-600 mt-1.5">{item.date}</p>
+                <div class="flex">
+                  <div class="flex flex-col items-start">
+                    <h2 class="text-xl font-bold text-slate-700">
+                      {item.title}
+                    </h2>
+                    <p class="text-sm text-gray-600">{item.subTitle}</p>
+                  </div>
+                  <div class="flex flex-col items-end ml-auto">
+                    <a
+                      href={item.link}
+                      rel="noopener noreferrer"
+                      class="text-blue-400 hover:text-red-700 hover:underline"
+                    >
+                      link
+                    </a>
+                    <p class="text-sm text-gray-600 mt-1.5">{item.date}</p>
+                  </div>
                 </div>
-                <p class="text-sm text-gray-600">{item.subTitle}</p>
                 <p class="text-gray-700 text-sm mt-2 text-justify">
                   {item.description}
                 </p>
