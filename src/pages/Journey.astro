@@ -26,7 +26,7 @@ const education = [
     title: "AdaTechSchool",
     date: "2022 - 2024",
     link: "https://adatechschool.fr/",
-    subTitle: "FullStack Web Development Program",
+    subTitle: "FullStack Web Development",
     description: `Two-year on-site web development training.
     The first year focused on project-based learning, primarily using the JavaScript ecosystem, including React, Node.js, and NoSQL databases.
     The program also focused on collaboration, teamwork, and problem-solving in a professional environment.
@@ -63,22 +63,23 @@ const education = [
             <div class="relative flex mb-8">
               <div class="absolute left-4 top-0 h-full w-0.5 bg-red-700" />
               <div class="ml-8">
-                <div class="flex">
+                <div class="flex flex-col sm:flex-row">
                   <div class="flex flex-col items-start">
                     <h2 class="text-xl font-bold text-slate-700">
                       {item.title}
                     </h2>
                     <p class="text-sm text-gray-600">{item.subTitle}</p>
                   </div>
-                  <div class="flex flex-col items-end ml-auto">
+                  <div class="flex sm:flex-col items-start sm:items-end sm:ml-auto gap-2 sm:gap-0">
                     <a
                       href={item.link}
                       rel="noopener noreferrer"
+                      target="_blank"
                       class="text-blue-400 hover:text-red-700 hover:underline"
                     >
                       link
                     </a>
-                    <p class="text-sm text-gray-600 mt-1.5">{item.date}</p>
+                    <p class="text-sm text-gray-600 mt-0.5">{item.date}</p>
                   </div>
                 </div>
                 <p class="text-gray-700 text-sm mt-2 text-justify">
@@ -98,22 +99,23 @@ const education = [
             <div class="relative flex mb-8">
               <div class="absolute left-4 top-0 h-full w-0.5 bg-red-700" />
               <div class="ml-8">
-                <div class="flex">
+                <div class="flex flex-col sm:flex-row">
                   <div class="flex flex-col items-start">
                     <h2 class="text-xl font-bold text-slate-700">
                       {item.title}
                     </h2>
                     <p class="text-sm text-gray-600">{item.subTitle}</p>
                   </div>
-                  <div class="flex flex-col items-end ml-auto">
+                  <div class="flex sm:flex-col items-start sm:items-end sm:ml-auto gap-2 sm:gap-0">
                     <a
                       href={item.link}
                       rel="noopener noreferrer"
+                      target="_blank"
                       class="text-blue-400 hover:text-red-700 hover:underline"
                     >
                       link
                     </a>
-                    <p class="text-sm text-gray-600 mt-1.5">{item.date}</p>
+                    <p class="text-sm text-gray-600 mt-0.5">{item.date}</p>
                   </div>
                 </div>
                 <p class="text-gray-700 text-sm mt-2 text-justify">

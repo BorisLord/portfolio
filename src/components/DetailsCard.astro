@@ -12,6 +12,7 @@ const { extraClass, data } = Astro.props;
   <div class="mt-2 sm:mt-0 text-right flex space-x-4">
     <a
       href={`/project/${data.title}`}
+      rel="noopener noreferrer"
       class="flex items-center gap-1 text-blue-400 hover:text-red-700 hover:underline"
     >
       Details
@@ -20,6 +21,8 @@ const { extraClass, data } = Astro.props;
       data.link ? (
         <a
           href={data.link}
+          rel="noopener noreferrer"
+          target="_blank"
           class="flex items-center gap-1 text-blue-400 hover:text-red-700 hover:underline"
         >
           Demo
@@ -32,6 +35,8 @@ const { extraClass, data } = Astro.props;
       data.git ? (
         <a
           href={data.git}
+          rel="noopener noreferrer"
+          target="_blank"
           class="flex items-center gap-1 text-blue-400 hover:text-red-700 hover:underline"
         >
           Git
