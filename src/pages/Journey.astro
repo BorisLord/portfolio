@@ -3,19 +3,23 @@ import Card from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
 
 const work = [
-  // {
-  //   title: "Freelance",
-  //   date: "2024 - Now",
-  //   subTitle: "FullStack Developper",
-  //   description: `Working with clients to understand their needs and deliver custom digital solutions.
-  //   I develop websites, automate systems, and create custom workflows that align with their specific requirements.
-  //   My approach combines technical expertise with a problem-solving mindset to create efficient, and user-friendly solutions.`,
-  // },
+  {
+    title: "Act In Mad",
+    date: "November 2024 - Now",
+    link: "https://actinmad.art/",
+    subTitle: "Co-Founder – Growth & Tech Developer",
+    stack: "Astro, Preact, TypeScript, Pocketbase",
+    description: `Developed a website and blog for a theater company using Static Site Generation (SSG).
+    Implemented a secure user portal for viewing courses, managing personal data, and accessing invoices.
+    Integrated features for class registration and payment, automated invoice generation, and email notifications.
+    Used PocketBase for rapid development, as it includes a rich text editor in the admin panel.`,
+  },
   {
     title: "Caarl",
-    date: "2023 - 2024",
+    date: "June 2023 - October 2024 (1yr 4mos)",
     link: "https://www.caarl.fr/",
     subTitle: "Apprentice FullStack Developer",
+    stack: "NextJS, React, TypeScript, NodeJS, MongoDB",
     description: `Worked under the supervision of the lead developer to implement key features,
     including dashboards, recurring appointment functionality, API log retrieval and visualization, UI mockup integration, and form workflow implementation.
     Developed SSR pages using Next.js and managed API interactions.`,
@@ -24,17 +28,17 @@ const work = [
 const education = [
   {
     title: "AdaTechSchool",
-    date: "2022 - 2024",
+    date: "October 2022 - October 2024 (2yrs)",
     link: "https://adatechschool.fr/",
     subTitle: "FullStack Web Development",
     description: `Two-year on-site web development training.
-    The first year focused on project-based learning, primarily using the JavaScript ecosystem, including React, Node.js, and NoSQL databases.
+    The first year focused on project-based learning, primarily using the JavaScript/NodeJS ecosystem, including React, TypeScript, and SQL/NoSQL databases.
     The program also focused on collaboration, teamwork, and problem-solving in a professional environment.
     The second year was spent as an apprentice, gaining real-world experience.`,
   },
   {
     title: "CS50x",
-    date: "2021",
+    date: "early 2022",
     link: "https://www.edx.org/learn/computer-science/harvard-university-cs50-s-introduction-to-computer-science",
     subTitle: "Introduction to Computer Science",
     description: `Gained foundational knowledge in computer science concepts, algorithms, and programming.
@@ -42,7 +46,7 @@ const education = [
   },
   {
     title: "FreeCodeCamp",
-    date: "2021",
+    date: "early 2022",
     link: "https://www.freecodecamp.org/",
     subTitle: "Basic HTML, CSS, JavaScript",
     description: `Acquired fundamental front-end development skills, including structuring web pages with HTML, styling with CSS, and adding interactivity using JavaScript.
@@ -69,6 +73,7 @@ const education = [
                       {item.title}
                     </h2>
                     <p class="text-sm text-gray-600">{item.subTitle}</p>
+                    <p class="text-sm text-gray-600 italic">{item.stack}</p>
                   </div>
                   <div class="flex sm:flex-col items-start sm:items-end sm:ml-auto gap-2 sm:gap-0">
                     <a
