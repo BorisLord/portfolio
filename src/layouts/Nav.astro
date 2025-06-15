@@ -11,17 +11,17 @@ const links: link[] = [
   { label: "Projects", href: "/Projects" },
   { label: "Skills", href: "/Skills" },
   { label: "Experiences", href: "/Experiences" },
-  // { label: "CV", href: "/cv_BorisD.pdf" },
+  { label: "CV", href: "/cv_BorisD.pdf" },
 ];
 ---
 
 <nav aria-label="Main Navigation" class="text-white text-left -ml-2 mb-3">
-  <ul class="flex gap-3">
+  <ul class="flex gap-1">
     {
       links.map((link: link) => (
         <li>
           <a
-            class={`tracking-widest px-2 text-lg ${
+            class={`px-2 text-lg ${
               currentPath.replace(/\/$/, "") === link.href.replace(/\/$/, "")
                 ? "font-extrabold underline decoration-red-700 decoration-3 underline-offset-3"
                 : ""
