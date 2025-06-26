@@ -11,22 +11,22 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.0",
-    "@tailwindcss/vite": "^4.1.8",
-    "astro": "^5.9.2",
-    "tailwindcss": "^4.1.8"
+    "@tailwindcss/vite": "^4.1.10",
+    "astro": "^5.10.1",
+    "tailwindcss": "^4.1.10"
   },
   "devDependencies": {
-    "@iconify-json/devicon": "^1.2.28",
+    "@iconify-json/devicon": "^1.2.29",
     "@iconify-json/f7": "^1.2.2",
     "@iconify-json/flagpack": "^1.2.2",
-    "@iconify-json/fluent": "^1.2.23",
+    "@iconify-json/fluent": "^1.2.25",
     "@iconify-json/game-icons": "^1.2.3",
     "@iconify-json/iconoir": "^1.2.7",
     "@iconify-json/line-md": "^1.2.8",
-    "@iconify-json/mynaui": "^1.2.13",
+    "@iconify-json/mynaui": "^1.2.14",
     "@tailwindcss/typography": "^0.5.16",
     "astro-icon": "^1.1.5",
-    "prettier": "^3.5.3",
+    "prettier": "^3.6.1",
     "prettier-plugin-astro": "^0.14.1"
   }
 }

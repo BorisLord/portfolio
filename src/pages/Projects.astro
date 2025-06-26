@@ -6,7 +6,7 @@ import { getCollection } from "astro:content";
 const projectMDX = await getCollection("projects");
 
 const sortedProjects = projectMDX.sort(
-  (a, b) => a.data.sortOrder - b.data.sortOrder,
+  (a, b) => a.data.sortOrder - b.data.sortOrder
 );
 ---
 
@@ -14,6 +14,9 @@ const sortedProjects = projectMDX.sort(
   <div class="flex justify-center items-start mt-6 pb-12">
     <div class="w-full max-w-screen-md px-6">
       <div class="space-y-6">
+        <h2 class="font-bold text-slate-700 mb-6">
+          Personal & Open Source Projects
+        </h2>
         {
           sortedProjects.map(({ data }) => (
             <DetailsCard
