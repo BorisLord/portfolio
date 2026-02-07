@@ -2,12 +2,16 @@
 import Layout from "../layouts/Layout.astro";
 import DetailsCard from "../components/DetailsCard.astro";
 import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 
 const projectMDX = await getCollection("projects");
+type ProjectEntry = CollectionEntry<"projects">;
 
-const sortedProjects = projectMDX.sort(
-  (a, b) => a.data.sortOrder - b.data.sortOrder
+const sortedProjects = [...projectMDX].sort(
+  (a: ProjectEntry, b: ProjectEntry) => a.data.sortOrder - b.data.sortOrder,
 );
+
+const toSlug = (project: ProjectEntry) => project.id.replace(/\.(md|mdx)$/, "");
 ---
 
 <Layout>
@@ -18,9 +22,10 @@ const sortedProjects = projectMDX.sort(
           Personal & Open Source Projects
         </h2>
         {
-          sortedProjects.map(({ data }) => (
+          sortedProjects.map((project: ProjectEntry) => (
             <DetailsCard
-              data={data}
+              data={project.data}
+              slug={toSlug(project)}
               extraClass="px-6 py-4 flex flex-col sm:flex-row md:items-center justify-between"
             />
           ))
