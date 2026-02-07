@@ -1,2 +1,10 @@
 @import "tailwindcss";
 @plugin '@tailwindcss/typography';
+
+html {
+    overflow-y: scroll;
+}
+
+body {
+    min-height: 100dvh;
+}

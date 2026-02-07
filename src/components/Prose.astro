@@ -2,6 +2,6 @@
 const { extraClass } = Astro.props;
 ---
 
-<div class=`prose ${extraClass}`>
+<div class={`prose ${extraClass ?? ""}`.trim()}>
   <slot />
 </div>
