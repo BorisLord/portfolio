@@ -1,12 +1,17 @@
-FROM node:lts-alpine AS build
+FROM node:22-alpine AS build
 
 WORKDIR /app
 
+# Leverage Docker layer cache for dependencies
+COPY package.json pnpm-lock.yaml ./
+
+RUN corepack enable \
+    && corepack prepare pnpm@latest --activate \
+    && pnpm install --frozen-lockfile --prefer-offline
+
 COPY . .
 
-RUN npm install
-
-RUN npm run build
+RUN pnpm build
 
 FROM httpd:2.4-alpine AS runtime
 
