@@ -1,0 +1,101 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import {
+  Section,
+  SectionContent,
+  SectionProse,
+  SectionGrid,
+} from "@/components/ui/section";
+import {
+  Tile,
+  TileContent,
+  TileTitle,
+  TileDescription,
+} from "@/components/ui/tile";
+import { Badge } from "@/components/ui/badge";
+
+const projects = [
+  {
+    title: "JobSpotter",
+    href: "https://jobspotter.app/",
+    description: [
+      "Sometimes you land on a company's website and something clicks — the product, the vision, the energy.",
+      "You want to know if they're hiring. So you dig through their site looking for a career page, and half the time it's buried or doesn't exist.",
+      "I got tired of wasting time on that. So I built JobSpotter — a browser extension that finds the career page for you in one click.",
+    ],
+    cta: "It's free => install it",
+    skills: ["Build from scratch", "System design"],
+  },
+  {
+    title: "ActInMad",
+    href: "https://actinmad.art/",
+    description: [
+      "Watching people play, express, take risks on stage. The laughs, the nerves before a show, the energy when it all comes together. That's what keeps me there.",
+      "A theater school where I do a bit of everything — building the webapp, constructing stage sets, finding clients, selling courses, growing the project.",
+      "Whatever it takes to make it work, I figure it out.",
+      "It's not code, but it's systems, timing, and making things work when it matters.",
+    ],
+    skills: ["Growth & sales", "Technical production"],
+  },
+  {
+    title: "Coming soon",
+    description: [
+      "I'll bring chaos to protect you.",
+      "Software meets hardware — my first passion.",
+      "Stay tuned.",
+    ],
+    skills: ["Hardware & electronics", "Problem solving"],
+  },
+];
+---
+
+<Layout title="Skills" description="What I can do.">
+  <Section size="sm">
+    <SectionContent class="gap-10">
+      {
+        projects.map((project) => (
+          <Tile variant="floating">
+            <TileContent>
+              <TileTitle>
+                {project.href ? (
+                  <a
+                    href={project.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="underline underline-offset-4 hover:text-primary transition-colors"
+                  >
+                    {project.title}
+                  </a>
+                ) : (
+                  project.title
+                )}
+              </TileTitle>
+              <div class="flex flex-col gap-1">
+                {project.description.map((line) => (
+                  <TileDescription>{line}</TileDescription>
+                ))}
+                {project.cta && (
+                  <p class="text-sm font-medium pt-1">
+                    <a
+                      href={project.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="underline underline-offset-4 hover:text-primary transition-colors"
+                    >
+                      {project.cta}
+                    </a>
+                  </p>
+                )}
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-2">
+                {project.skills.map((skill) => (
+                  <Badge variant="secondary">{skill}</Badge>
+                ))}
+              </div>
+            </TileContent>
+          </Tile>
+        ))
+      }
+    </SectionContent>
+  </Section>
+</Layout>

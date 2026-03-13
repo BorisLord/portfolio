@@ -1,21 +1,46 @@
 ---
-import { getEntry, render } from "astro:content";
-import Card from "@/components/Card.astro";
-import Prose from "@/components/Prose.astro";
 import Layout from "@/layouts/Layout.astro";
-
-const intro = await getEntry("intro", "index");
-const { Content } = await render(intro!);
+import { Section, SectionContent, SectionProse } from "@/components/ui/section";
+import { site } from "@/config";
 ---
 
 <Layout>
-  <div class="flex justify-center items-start mt-6 pb-12">
-    <div class="w-full max-w-3xl px-6">
-      <Card extraClass="px-6 py-4 text-justify">
-        <Prose extraClass="text-justify">
-          <Content />
-        </Prose>
-      </Card>
-    </div>
-  </div>
+  <Section size="sm">
+    <SectionContent class="items-center text-center">
+      <h1 class="text-3xl font-bold">{site.name}</h1>
+      <p class="text-muted-foreground">
+        {site.role}
+        <br />
+        {site.location}
+      </p>
+    </SectionContent>
+    <SectionProse class="mx-auto">
+      <p>
+        I love building from zero; where everything needs to be done.
+        Prototyping, creating, sharing, discovering. That's what drives me every
+        day. I fail, I break things, I start over. Each time a little bigger
+        than the last.
+      </p>
+      <p>
+        My weeks are eclectic. I might be painting a theater set on Monday,
+        shipping features in an app on Wednesday, and tinkering with hardware on
+        Thursday. I just like it when no two days look the same.
+      </p>
+      <p>
+        To move forward you need to be organized, plan, and then do. Do, do, do.
+        That's the most important thing; take action. Don't wait for the right
+        moment. Don't plan forever. Don't overthink. Just go. Action creates
+        results. Results create joy. And you keep going.
+      </p>
+      <p>
+        That's where my drive comes from; the joy of creating, seeing what I
+        build being used, being useful, bringing something to others and to
+        myself. That's how I live, day by day.
+      </p>
+      <p>
+        It feels like I'm writing these words for myself; because they are
+        things I keep telling myself.
+      </p>
+    </SectionProse>
+  </Section>
 </Layout>

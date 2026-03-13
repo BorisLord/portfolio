@@ -9,7 +9,7 @@
 
 # --- Stage 1: Build ---
 
-FROM node:24-alpine3.23 AS builder
+FROM node:lts-alpine AS builder
 WORKDIR /app
 RUN corepack enable
 
@@ -22,15 +22,11 @@ RUN pnpm build
 
 # --- Stage 2: Serve ---
 
-FROM httpd:2.4-alpine3.21
-RUN apk upgrade --no-cache
-
-RUN sed -i 's/#ErrorDocument 404 \/missing.html/ErrorDocument 404 \/404.html/' /usr/local/apache2/conf/httpd.conf
-
-COPY --from=builder /app/dist /usr/local/apache2/htdocs/
+FROM joseluisq/static-web-server:2-alpine
+COPY --from=builder /app/dist /public
 EXPOSE 80
 
 HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
     CMD wget --spider http://127.0.0.1/ || exit 1
 
-CMD ["httpd-foreground"]
+CMD ["static-web-server", "--port", "80", "--root", "/public", "--page404", "/public/404.html"]

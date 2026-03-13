@@ -1,18 +1,24 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import lostCat from "@/assets/lostCat.jpg";
+import { Section, SectionContent } from "@/components/ui/section";
+import { Button } from "@/components/ui/button";
+import { Icon } from "@/components/ui/icon";
 ---
 
-<Layout>
-  <div class="flex flex-col items-center justify-center p-8">
-    <h1 class="text-4xl font-extrabold mb-6">404</h1>
-    <div class="overflow-hidden rounded-4xl">
-      <img
-        loading="lazy"
-        src={lostCat.src}
-        alt="Lost cat illustration"
-        class="object-cover w-full h-full"
-      />
-    </div>
-  </div>
+<Layout title="404" description="Page not found.">
+  <Section size="sm">
+    <SectionContent class="items-center text-center">
+      <h1 class="text-6xl font-extrabold">404</h1>
+      <p class="text-muted-foreground text-lg">This page doesn't exist.</p>
+      <div class="overflow-hidden rounded-xl max-w-md">
+        <img
+          loading="lazy"
+          src={lostCat.src}
+          alt="Lost cat illustration"
+          class="object-cover w-full h-full"
+        />
+      </div>
+    </SectionContent>
+  </Section>
 </Layout>

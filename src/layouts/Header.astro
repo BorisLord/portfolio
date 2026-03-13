@@ -1,57 +1,86 @@
 ---
-import { Icon } from "astro-icon/components";
-import Nav from "@/layouts/Nav.astro";
+import { Header as HeaderUI, HeaderActions } from "@/components/ui/header";
+import { Logo } from "@/components/ui/logo";
+import { Button } from "@/components/ui/button";
+import { Icon } from "@/components/ui/icon";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { site } from "@/config";
+
+const currentPath = Astro.url.pathname;
+
+const links = [
+  { label: "Me", href: "/" },
+  { label: "Craft", href: "/craft" },
+];
 ---
 
-<section class="bg-slate-700 text-white flex justify-center items-start pt-10">
-  <div class="w-full max-w-3xl px-6 text-white">
-    <div class="flex flex-col">
-      <div class="text-left mb-4">
-        <h1 class="text-3xl font-bold -ml-0.5 mb-2">Boris D.</h1>
-        <h2 class="text-lg mb-0.5">Backend Software Engineer</h2>
-        <p class="text-sm">Paris, France</p>
-      </div>
+<HeaderUI class="border-border border-b">
+  <Logo href="/" class="flex-1">
+    <img src="/favicon.svg" alt={site.name} class="h-8 w-auto" />
+  </Logo>
 
-      <div class="flex gap-4 text-white mb-6">
-        <a
-          title="Github"
-          href="https://github.com/BorisLord"
-          class="hover:text-red-700"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <Icon name="line-md:github-loop" size="25" />
-        </a>
+  <nav class="flex items-center justify-center gap-0">
+    {
+      links.map((link) => {
+        const isActive =
+          currentPath.replace(/\/$/, "") === link.href.replace(/\/$/, "");
+        return (
+          <a
+            href={link.href}
+            aria-current={isActive ? "page" : undefined}
+            class:list={[
+              "rounded-sm px-2 py-1.5 text-sm transition-colors hover:bg-muted",
+              isActive
+                ? "bg-muted/50 font-medium text-foreground"
+                : "text-muted-foreground",
+            ]}
+          >
+            {link.label}
+          </a>
+        );
+      })
+    }
+  </nav>
 
-        <a
-          title="Email"
-          href="mailto:boris@dellabs.nexus"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="hover:text-red-700"
-        >
-          <Icon name="line-md:email-plus" size="25" />
-        </a>
-        <a
-          href="/cv_BorisD.pdf"
-          title="Download CV"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="hover:text-red-700"
-        >
-          <Icon name="line-md:file-download" size="25" />
-        </a>
-        <a
-          title="LinkedIn"
-          href="https://www.linkedin.com/in/boris-d/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="hover:text-red-700"
-        >
-          <Icon name="line-md:linkedin" size="25" />
-        </a>
-      </div>
-      <Nav />
-    </div>
-  </div>
-</section>
+  <HeaderActions class="flex-1 justify-end">
+    <Button
+      variant="ghost"
+      size="icon-sm"
+      href={site.links.github}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="GitHub"
+    >
+      <Icon href={site.links.github} />
+    </Button>
+    <Button
+      variant="ghost"
+      size="icon-sm"
+      href={site.links.linkedin}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="LinkedIn"
+    >
+      <Icon href={site.links.linkedin} />
+    </Button>
+    <Button
+      variant="ghost"
+      size="icon-sm"
+      href={site.links.email}
+      aria-label="Email"
+    >
+      <Icon href={site.links.email} />
+    </Button>
+    <Button
+      variant="ghost"
+      size="icon-sm"
+      href={site.links.cv}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Download CV"
+    >
+      <Icon name="file-download" />
+    </Button>
+    <ThemeToggle />
+  </HeaderActions>
+</HeaderUI>
