@@ -1,7 +1,7 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "@/layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
-import Card from "../components/Card.astro";
+import Card from "@/components/Card.astro";
 
 const core = [
   { name: "TypeScript", icon: "devicon:typescript" },
@@ -59,7 +59,7 @@ const softSkills = [
 
 <Layout>
   <div class="flex justify-center items-start mt-6 pb-12">
-    <div class="w-full max-w-screen-md px-6 space-y-6">
+    <div class="w-full max-w-3xl px-6 space-y-6">
       <div class="grid grid-cols-2 gap-4">
         <Card extraClass="flex items-center justify-center p-3 text-gray-600">
           <Icon name="flagpack:fr" class="mr-3" />
@@ -100,7 +100,7 @@ const softSkills = [
 
       <div class="grid grid-cols-2 gap-4">
         {
-          softSkills.map((skill, index) => (
+          softSkills.map((skill) => (
             <Card extraClass="flex items-center justify-center p-3 text-gray-600">
               <Icon name={skill.icon} class="text-2xl mr-3" />
               {skill.name}

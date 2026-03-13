@@ -2,9 +2,9 @@
 @plugin '@tailwindcss/typography';
 
 html {
-    overflow-y: scroll;
+  overflow-y: scroll;
 }
 
 body {
-    min-height: 100dvh;
+  min-height: 100dvh;
 }

@@ -1,8 +1,8 @@
 ---
 import { getEntry, render } from "astro:content";
-import Card from "../components/Card.astro";
-import Prose from "../components/Prose.astro";
-import Layout from "../layouts/Layout.astro";
+import Card from "@/components/Card.astro";
+import Prose from "@/components/Prose.astro";
+import Layout from "@/layouts/Layout.astro";
 
 const intro = await getEntry("intro", "index");
 const { Content } = await render(intro!);
@@ -10,7 +10,7 @@ const { Content } = await render(intro!);
 
 <Layout>
   <div class="flex justify-center items-start mt-6 pb-12">
-    <div class="w-full max-w-screen-md px-6">
+    <div class="w-full max-w-3xl px-6">
       <Card extraClass="px-6 py-4 text-justify">
         <Prose extraClass="text-justify">
           <Content />
