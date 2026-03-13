@@ -1,0 +1,77 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends Omit<HTMLAttributes<"svg">, "name" | "href"> {
+  href?: HTMLAttributes<"a">["href"];
+  name?: string | number;
+}
+
+const { name, href, ...rest } = Astro.props;
+
+const hrefMap = {
+  "x.com": "x",
+  twitter: "brand-twitter",
+  facebook: "brand-facebook",
+  instagram: "brand-instagram",
+  pinterest: "brand-pinterest",
+  youtube: "brand-youtube",
+  tiktok: "brand-tiktok",
+  snapchat: "brand-snapchat",
+  reddit: "brand-reddit",
+  tumblr: "brand-tumblr",
+  "wa.me": "brand-whatsapp",
+  telegram: "brand-telegram",
+  discord: "brand-discord",
+  vimeo: "brand-vimeo",
+  flickr: "brand-flickr",
+  yelp: "brand-yelp",
+  spotify: "brand-spotify",
+  behance: "brand-behance",
+  dribbble: "brand-dribbble",
+  soundcloud: "brand-soundcloud",
+  github: "brand-github",
+  twitch: "brand-twitch",
+  "tel:": "phone",
+  "mailto:": "mail",
+  "maps.app.goo.gl": "map-pin",
+  linkedin: "brand-linkedin",
+} as const;
+
+const icons = import.meta.glob([
+  "/node_modules/@tabler/icons/icons/outline/arrow-left.svg",
+  "/node_modules/@tabler/icons/icons/outline/external-link.svg",
+  "/node_modules/@tabler/icons/icons/outline/file-download.svg",
+  "/node_modules/@tabler/icons/icons/outline/briefcase.svg",
+  "/node_modules/@tabler/icons/icons/outline/graduation-cap.svg",
+  "/node_modules/@tabler/icons/icons/outline/sun.svg",
+  "/node_modules/@tabler/icons/icons/outline/moon.svg",
+  "/node_modules/@tabler/icons/icons/outline/x.svg",
+  "/node_modules/@tabler/icons/icons/outline/mail.svg",
+  "/node_modules/@tabler/icons/icons/outline/phone.svg",
+  "/node_modules/@tabler/icons/icons/outline/map-pin.svg",
+  "/node_modules/@tabler/icons/icons/outline/loader-2.svg",
+  "/node_modules/@tabler/icons/icons/outline/brand-github.svg",
+  "/node_modules/@tabler/icons/icons/outline/brand-linkedin.svg",
+]);
+
+const resolvedName = (() => {
+  if (name) return String(name);
+  if (href) {
+    const hrefKey = Object.keys(hrefMap).find((key) =>
+      href.toString().includes(key),
+    );
+    return hrefKey ? hrefMap[hrefKey as keyof typeof hrefMap] : undefined;
+  }
+  return undefined;
+})();
+
+const foundPath = resolvedName
+  ? Object.keys(icons).find((key) => key.includes(`/${resolvedName}.svg`))
+  : undefined;
+
+const foundModule = foundPath && icons[foundPath as keyof typeof icons];
+const module = foundModule && ((await foundModule()) as any);
+const Comp = module?.default;
+---
+
+{Comp && <Comp height={24} width={24} class="size-[1.20rem]" {...rest} />}

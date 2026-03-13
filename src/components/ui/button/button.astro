@@ -1,0 +1,27 @@
+---
+import type { HTMLAttributes, HTMLTag, Polymorphic } from "astro/types";
+
+import { cn } from "@/lib/utils";
+
+import { buttonVariants, type ButtonVariantProps } from "./button-variants";
+
+type Props<Tag extends HTMLTag = "button"> = Polymorphic<{ as: Tag }> &
+  ButtonVariantProps &
+  Partial<Pick<HTMLAttributes<"a">, "href" | "target" | "rel">>;
+
+const {
+  as: Tag = "href" in Astro.props ? "a" : "button",
+  class: className,
+  variant = "default",
+  size = "default",
+  ...props
+} = Astro.props;
+---
+
+<Tag
+  data-slot="button"
+  class={cn(buttonVariants({ variant, size }), className)}
+  {...props}
+>
+  <slot />
+</Tag>
