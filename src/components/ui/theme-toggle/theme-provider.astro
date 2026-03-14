@@ -1,8 +1,5 @@
 <script is:inline>
-  (() => {
-    if (window.__themeInitialized) return;
-    window.__themeInitialized = true;
-
+  function applyTheme() {
     const theme = (() => {
       const localStorageTheme = localStorage?.getItem("theme") ?? "";
       if (["dark", "light"].includes(localStorageTheme)) {
@@ -22,5 +19,9 @@
 
     document.documentElement.setAttribute("data-theme", theme);
     window.localStorage.setItem("theme", theme);
-  })();
+  }
+
+  applyTheme();
+
+  document.addEventListener("astro:after-swap", applyTheme);
 </script>
