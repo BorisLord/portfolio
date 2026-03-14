@@ -1,6 +1,6 @@
 export const site = {
   name: "Boris D.",
-  title: "Crafter, Maker & Founder",
+  title: "Maker & Founder",
   description:
     "Maker & Founder based in France. Building JobSpotter, ActInMad, and more.",
   role: "Maker & Founder",
